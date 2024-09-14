@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>hw2_nostyle</title>
+</head>
+<body>
+    <div id="top">
+        <img src="/docs/5.2/assets/brand/bootstrap-logo.svg" alt="" width="72" height="57">
+        <h2 id="title">Checkout form</h2>
+        <p id="content">Below is an example form built entirely with Bootstrap’s formcontrols. Each required form group has a validation state that can betriggered by attempting to submit the form without completing it.</p>
+    </div>
+    <div id="body">
+        <h4 id="billing">Billing address</h4>
+        <div id="name">
+            <div id="one">
+                <label id="item">First name</label>
+                <input type="text" class="form-control" id="firstName" placeholder="" value="" required=""/>
+            </div>
+            <div id="one">
+                <label id="item">Last name</label>
+                <input type="text" class="form-control" id="firstName" placeholder="" value="" required=""/>
+            </div>
+        </div>
+
+        <div id="item">Username</div>
+        <div id="username">
+            <span class="@">@</span>
+            <input type="text" class="form-control" id="username" placeholder="username" required=""/>
+        </div>
+
+        <div id="item">Email (Optional)</div>
+        <input type="email" class="form-control" id="email" placeholder="you@example.com"/>
+
+
+        <div id="item">Address</div>
+        <input type="text" class="form-control" id="address" placeholder="1234 Main St" required=""/>
+
+        <div id="item">Card color</div>
+        <input type="color" class="form-control" id="CardColor"/>
+
+        <div id="name">
+            <div id="one">
+                <div id="item">Country</div>
+                    <select class="form-select" id="country" required="">
+                        <option value="">Choose...</option>
+                        <option>United States</option>
+                        <option>Korea</option>
+                        <option>Japan</option>
+                    </select>
+            </div>
+
+            <div id="one">
+                <label for="browser" id="item">State</label>
+                <input list="statelist" name="states" id="states" />
+                <datalist id="statelist">
+                    <option value="California"></option>
+                    <option value="Seoul"></option>
+                    <option value="Osaka"></option>
+                </datalist>
+            </div>
+
+            <div id="one">
+                <div id="item">Zip</div>
+                <textarea id="zip"></textarea>
+            </div>
+        </div>
+
+        <hr id="hr"/>
+
+        <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="same-address"/>
+            <label class="form-check-label" for="same-address">
+                Shipping address is the same as my billing address
+            </label>
+        </div>
+
+        <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="same-address" />
+            <label class="form-check-label" for="same-address">
+                Save this information for next time</label>
+        </div>
+
+        <hr id="hr"/>
+
+        <div id="billing">Payment</div>
+        <div class="form-check">
+            <input type="radio" id="credit" name="paymentMethod" class="form-check-input" checked="" required/>
+            <label class="form-check-label" for="credit">Credit card</label>
+        </div>
+        <div class="form-check">
+            <input id="credit" name="paymentMethod" type="radio" class="form-check-input" required=""/>
+            <label class="form-check-label" for="debit">Debit card</label>
+        </div>
+        <div class="form-check">
+            <input id="credit" name="paymentMethod" type="radio" class="form-check-input" required=""/>
+            <label class="form-check-label" for="paypal">PayPal</label>
+        </div>
+
+    <div id="name">
+      <div id="one">
+        <div id="item">Name on card</div>
+        <input type="text" class="form-control" id="CardName" placeholder="" required=""/>
+        <br/>
+        <small class="text-muted">Full name as displayed on card</small>
+      </div>
+
+    <div id="one">
+        <div id="item">Credit card number</div>
+        <input type="text" class="form-control" id="CardNumber" placeholder="" required=""/>
+        </div>
+    </div>
+    <div id="name">
+        <div id="one">
+            <div id="item">Expiration</div>
+            <input type="date" class="form-control" id="cc-expiration" />
+        </div>
+
+    <div id="one">
+        <div id="item">CVV</div>
+            <input type="text" class="form-control" id="cc-cvv" placeholder="" required=""/>
+        </div>
+    </div>
+
+    <hr id="hr"/>
+    <br/>
+
+    <button id="bluebutton" onclick="return validateForm()">
+        Continue to checkout
+    </button>
+</body>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>form.html</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            max-width: 500px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        input[type="text"] {
+            width: calc(100% - 22px);
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            padding: 10px 15px;
+            border: none;
+            color: white;
+            background-color: #007BFF;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+        button.delete {
+            background-color: #DC3545;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        ul li {
+            background-color: #f8f9fa;
+            margin-bottom: 5px;
+            padding: 10px;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Dynamic Web Page</h1>
+        <input type="text" id="inputText" placeholder="내용을 입력하세요">
+        <button id="addButton">추가</button>
+        <button id="deleteButton" class="delete">삭제</button>
+        
+        <ul id="itemList"></ul>
+    </div>
+
+    <script>
+        window.onload = function() {
+            const addButton = document.getElementById('addButton');
+            const deleteButton = document.getElementById('deleteButton');
+            const inputText = document.getElementById('inputText');
+            const itemList = document.getElementById('itemList');
+
+            addButton.onclick = function() {
+                const text = inputText.value.trim();
+                if (text !== "") {
+                    const li = document.createElement('li');
+                    li.textContent = text;
+                    itemList.appendChild(li);
+                    inputText.value = "";
+                } else {
+                    alert('내용을 입력해주세요:)');
+                }
+            };
+
+            deleteButton.onclick = function() {
+                itemList.innerHTML = "";
+            };
+        };
+    </script>
+</body>
+</html>

@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>hw2_js</title>
+
+    <style>
+        #main {
+            padding-top: 48px;
+        }
+
+        #top {
+            display: flex;
+            text-align: center;
+            align-items: center;
+            margin: 0px;
+            flex-direction: column;
+        }
+
+        #title {
+            margin-top: 0px;
+            padding: 0px;
+            margin-bottom: 3px;
+            font-size: 2rem;
+        }
+
+        #content {
+            margin-top: 0px;
+            font-size: 1.25rem;
+            font-weight: 300;
+            color: #212529;
+            padding-left: 30px;
+            padding-right: 30px;
+            padding-bottom: 48px;
+            font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif,
+              "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol","Noto Color Emoji";
+            line-height: 1.5 !important;
+        }
+
+        #one {
+            margin-right: 16px;
+            margin-bottom: 16px;
+        }
+
+        #billing{
+            font-size: 1.5rem;
+            font-weight: 500;
+            line-height: 1.2;
+            font-family: system-ui, -apple-system, "Segoe UI", Roboto,
+              "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif,
+              "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+              "Noto Color Emoji";
+            margin-bottom: 16px;
+        }
+
+        #body {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            width: 936px;
+            padding-left: 12px;
+            padding-right: 12px;
+        }
+
+        #item {
+            margin-bottom: 8px;
+            display: flex;
+            justify-content: flex-start !important;
+        }
+
+        #firstName, #lastName, #CardName, #CardNumber {
+            width: 270px;
+            height: 24px;
+            padding: 6px 12px;
+            border: 1px solid #ced4da;
+            border-radius: 0.375rem;
+            line-height: 1.5;
+        }
+
+        #username {
+            width: 608px;
+            position: relative;
+            display: flex;
+            align-items: stretch;
+            margin-bottom: 16px;
+        }
+
+        .input-group-text {
+            display: flex;
+            align-items: center;
+            padding: 0.375rem 0.75rem;
+            font-size: 1rem;
+            font-weight: 400;
+            line-height: 1.5;
+            color: #212529;
+            text-align: center;
+            white-space: nowrap;
+            background-color: #e9ecef;
+            border: 1px solid #ced4da;
+            border-radius: 0.375rem 0rem 0rem 0.375rem;
+        }
+
+        #name {
+            display: flex;
+        }
+
+
+      #username1 {
+        display: block;
+        width: 100%;
+        padding: 0.375rem 0.75rem;
+        font-size: 1rem;
+        font-weight: 400;
+        line-height: 1.5;
+        color: #212529;
+        background-color: #fff;
+        background-clip: padding-box;
+        border: 1px solid #ced4da;
+        border-left: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        border-radius: 0rem 0.375rem 0.375rem 0rem;
+    }
+
+    #email, #address {
+        display: block;
+        width: 582.4px;
+        padding: 0.375rem 0.75rem;
+        font-size: 1rem;
+        font-weight: 400;
+        line-height: 1.5;
+        color: #212529;
+        background-color: #fff;
+        background-clip: padding-box;
+        border: 1px solid #ced4da;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        border-radius: 0.375rem;
+        margin-bottom: 16px;
+    }
+
+    #CardColor {
+        margin-bottom: 16px;
+    }
+
+    #country {
+        display: block;
+        width: 244px;
+        height: 38px;
+        padding: 6px 36px 6px 12px;
+        font-size: 1rem;
+        font-weight: 400;
+        line-height: 1.5;
+        color: #212529;
+        background-color: #fff;
+        border: 1px solid #ced4da;
+        border-radius: 0.375rem;
+        background-image: url('data:image/svg+xml,%3csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"%3e%3cpath fill="none" stroke="%23343a40" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2 5l6 6 6-6"/%3e%3c/svg%3e');
+        background-repeat: no-repeat;
+        background-position: right 0.75rem center;
+        background-size: 16px 12px;
+        appearance: none;
+        font-family: system-ui, -apple-system, "Segoe UI", Roboto,"Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif,
+          "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    }
+
+    #states {
+        width: 142.388px;
+        height: 24px;
+        padding: 6px 36px 6px 12px;
+        display: block;
+        font-size: 1rem;
+        font-weight: 400;
+        line-height: 1.5;
+        color: #212529;
+        border: 1px solid #ced4da;
+        border-radius: 0.375rem;
+    }
+
+    #zip {
+        width: 90px;
+        height: 24px;
+        padding: 6px 36px 6px 12px;
+        border: 1px solid #ced4da;
+        border-radius: 0.375rem;
+    }
+
+    #same-address {
+        width: 16px;
+        height: 16px;
+        margin: 0px;
+        margin-right: 8px;
+        vertical-align: top;
+        background-color: #fff;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: contain;
+        border: 1px solid rgba(0, 0, 0, 0.25);
+        border-radius: 0.25em;
+    }
+
+    .form-check {
+        display: flex;
+        text-align: center;
+        align-items: center;
+    }
+
+    #hr {
+        color: black;
+        width: 608px;
+        margin-top: 1.5rem !important;
+        margin-bottom: 1.5rem !important;
+        margin: 0px;
+    }
+
+    #credit {
+        background-image: url('data:image/svg+xml,%3csvg xmlns="http://www.w3.org/2000/svg" viewBox="-4 -4 8 8"%3e%3ccircle r="2" fill="%23fff"/%3e%3c/svg%3e');
+        width: 16px;
+        height: 16px;
+        border-radius: 50%;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: contain;
+        border: 1px solid rgba(0, 0, 0, 0.25);
+        appearance: none;
+        margin: 0px;
+        margin-right: 8px;
+    }
+
+    #credit:checked {
+        background-color: #0d6efd;
+        border-color: #0d6efd;
+    }
+
+    #cc-expiration, #cc-cvv {
+        width: 108px;
+        height: 24px;
+        border: 1px solid rgba(0, 0, 0, 0.25);
+        border-radius: 0.25em;
+        padding: 6px 36px 6px 12px;
+    }
+
+    #bluebutton {
+        background-color: #0d6efd;
+        width: 610px;
+        height: 50px;
+        padding: 8px 16px 8px 16px;
+        color: white;
+        font-family: system-ui, -apple-system, "Segoe UI", Roboto,
+          "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif,
+          "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+          "Noto Color Emoji";
+        font-weight: 400;
+        font-size: 1.25rem;
+        border-radius: 0.5rem;
+        border: none;
+    }
+    </style>
+</head>
+<body
+    style="
+    margin-left: 279.6px;
+    margin-right: 279.6px;
+    margin-top: 0px;
+    background-color: rgb(248, 249, 250);
+    line-height: 1.5;
+    ">
+
+    <div id="main">
+    <div id="top">
+        <img
+        src="https://getbootstrap.com/docs/5.2/assets/brand/bootstrap-logo.svg"
+        style="width: 72px; height: 57px; margin-bottom: 19px"
+      />
+        <h2 id="title">Checkout form</h2>
+        <p id="content">Below is an example form built entirely with Bootstrap’s form controls. Each required form group has a validation state that can be triggered by attempting to submit the form without completing it.</p>
+    </div>
+    <div id="body">
+        <h4 id="billing">Billing address</h4>
+        <div id="name">
+            <div id="one">
+                <label id="item">First name</label>
+                <input type="text" class="form-control" id="firstName" placeholder="" value="" required=""/>
+            </div>
+            <div id="one">
+                <label id="item">Last name</label>
+                <input type="text" class="form-control" id="firstName" placeholder="" value="" required=""/>
+            </div>
+        </div>
+
+        <div id="item">Username</div>
+        <div id="username">
+            <span class="input-group-text">@</span>
+            <input type="text" class="form-control" id="username" placeholder="username" required=""/>
+        </div>
+
+        <div id="item">Email (Optional)</div>
+        <input type="email" class="form-control" id="email" placeholder="you@example.com"/>
+
+
+        <div id="item">Address</div>
+        <input type="text" class="form-control" id="address" placeholder="1234 Main St" required=""/>
+
+        <div id="item">Card color</div>
+        <input type="color" class="form-control" id="CardColor"/>
+
+        <div id="name">
+            <div id="one">
+                <div id="item">Country</div>
+                    <select class="form-select" id="country" required="">
+                        <option value="">Choose...</option>
+                        <option>United States</option>
+                        <option>Korea</option>
+                        <option>Japan</option>
+                    </select>
+            </div>
+
+            <div id="one">
+                <label for="browser" id="item">State</label>
+                <input list="statelist" name="states" id="states" />
+                <datalist id="statelist">
+                    <option value="California"></option>
+                    <option value="Seoul"></option>
+                    <option value="Osaka"></option>
+                </datalist>
+            </div>
+
+            <div id="one">
+                <div id="item">Zip</div>
+                <textarea id="zip"></textarea>
+            </div>
+        </div>
+
+        <hr id="hr"/>
+
+        <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="same-address"/>
+            <label class="form-check-label" for="same-address">
+                Shipping address is the same as my billing address
+            </label>
+        </div>
+
+        <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="same-address" />
+            <label class="form-check-label" for="same-address">
+                Save this information for next time</label>
+        </div>
+
+        <hr id="hr"/>
+
+        <div id="billing">Payment</div>
+        <div class="form-check">
+            <input type="radio" id="credit" name="paymentMethod" class="form-check-input" checked="" required/>
+            <label class="form-check-label" for="credit">Credit card</label>
+        </div>
+        <div class="form-check">
+            <input id="credit" name="paymentMethod" type="radio" class="form-check-input" required=""/>
+            <label class="form-check-label" for="debit">Debit card</label>
+        </div>
+        <div class="form-check">
+            <input id="credit" name="paymentMethod" type="radio" class="form-check-input" required=""/>
+            <label class="form-check-label" for="paypal">PayPal</label>
+        </div>
+
+    <div id="name">
+      <div id="one">
+        <div id="item">Name on card</div>
+        <input type="text" class="form-control" id="CardName" placeholder="" required=""/>
+        <br/>
+        <small class="text-muted">Full name as displayed on card</small>
+      </div>
+
+    <div id="one">
+        <div id="item">Credit card number</div>
+        <input type="text" class="form-control" id="CardNumber" placeholder="" required=""/>
+        </div>
+    </div>
+    <div id="name">
+        <div id="one">
+            <div id="item">Expiration</div>
+            <input type="date" class="form-control" id="cc-expiration" />
+        </div>
+
+    <div id="one">
+        <div id="item">CVV</div>
+            <input type="text" class="form-control" id="cc-cvv" placeholder="" required=""/>
+        </div>
+    </div>
+
+    <hr id="hr"/>
+    <br/>
+
+    <button id="bluebutton" onclick="return validateForm()">
+        Continue to checkout
+    </button>
+    </div>
+    <script>
+        function validateForm() {
+          // First Name validation
+          const firstName = document.getElementById("firstName").value;
+  
+          const namePattern = /^[A-Za-z]+$/;
+  
+          if (!firstName.match(namePattern)) {
+            alert("First name must contain only English letters.");
+            document.getElementById("firstName").focus();
+            return false;
+          }
+  
+          // Last Name validation
+          const lastName = document.getElementById("lastName").value;
+          if (!lastName.match(namePattern)) {
+            alert("Last name must contain only English letters.");
+            document.getElementById("lastName").focus();
+            return false;
+          }
+  
+          // Username validation
+          const username = document.getElementById("username1").value;
+          if (!username.match(namePattern)) {
+            alert("Username must contain only English letters.");
+            document.getElementById("username1").focus();
+            return false;
+          }
+  
+          // Address validation
+          const address = document.getElementById("address").value;
+          if (!address.match(namePattern)) {
+            alert("Address must contain only English letters.");
+            document.getElementById("address").focus();
+            return false;
+          }
+  
+          // Email validation
+          const email = document.getElementById("email").value;
+          const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+          if (email && !email.match(emailPattern)) {
+            alert('Email must contain "@" and "." in the correct places.');
+            document.getElementById("email").focus();
+            return false;
+          }
+  
+          // CVV validation
+          const cvv = document.getElementById("cc-cvv").value;
+  
+          const numberPattern = /^[0-9]+$/;
+  
+          if (!cvv.match(numberPattern)) {
+            alert("CVV must contain only numbers.");
+            document.getElementById("cc-cvv").focus();
+            return false;
+          }
+  
+          if (true) {
+            alert("Everything is good");
+          }
+        }
+      </script>
+</body>
+</html>
